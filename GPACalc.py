@@ -10,8 +10,8 @@ def collectionOfGrades():
 		grade = input("Please enter your grade in an upper case alphabetical format (e.g. A+)")
 		try:
 			grade = grade.upper()
-			classes += 1
 			overallGPA += scoreDictionary[grade]
+			classes += 1
 
 		except KeyError: # catches any value that isn't in the above dictionary and gives option to exit
 			out = input("You've entered an invalid grade. Have you finished entering grades? Please type Y or N")
@@ -24,6 +24,9 @@ def collectionOfGrades():
 
 def calculateGrade(GPA, classcount):
 	finalScore = GPA / classcount
-	print("Your GPA is " + str(finalScore))
+	printGrade(finalScore)
+
+def printGrade(finalScore):
+	print("Your GPA is " + str(finalScore) + ".")
 
 collectionOfGrades()
