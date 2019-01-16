@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
-
+import java.awt.event.*;
 
 class GPACalculator {
 
@@ -23,7 +23,7 @@ class GPACalculator {
         frame.setSize(500, 500);
 
         // create panel at bottom, add compmonents
-
+        int gradeCount = 0;
         JPanel panel = new JPanel();
         JLabel promptLabel = new JLabel("Enter your grade (e.g. A+, A, A-, etc.):");
         JTextField textField = new JTextField(30);
@@ -36,22 +36,22 @@ class GPACalculator {
         panel.add(addGradeButton);
         panel.add(resetButton);
         panel.add(textArea);
+        addGradeButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                String variable = textField.getText();
+
+            }
+        });
 
         //setting layout
 
         frame.getContentPane().add(BorderLayout.CENTER, panel);
         frame.setVisible(true);
 
-        // setting up actionListeners
-
-        addGradeButton.addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(this, textBox.getText());
-            }
-        }
-
     }
+
 
 
     public static void main(String[] args) {
