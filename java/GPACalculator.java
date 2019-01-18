@@ -59,7 +59,6 @@ class GPACalculator {
             public void actionPerformed(ActionEvent e)
             {
                 String variable = textField.getText();
-                }
 
             }
         });
@@ -77,8 +76,6 @@ class GPACalculator {
     public static void main(String[] args) {
         gui();
         createHashMap();
-
-        System.out.println(hmap);
 
 
 
