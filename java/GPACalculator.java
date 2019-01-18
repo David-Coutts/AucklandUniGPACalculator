@@ -9,20 +9,18 @@ class GPACalculator {
     public static int grades[] = new int[24];
 
     private static void createHashMap(){
-        HashMap<String, Integer> temphmap = new HashMap<String, Integer>();
-        temphmap.put("A+", 9);
-        temphmap.put("A", 8);
-        temphmap.put("A-", 7);
-        temphmap.put("B+", 6);
-        temphmap.put("B", 5);
-        temphmap.put("B-", 4);
-        temphmap.put("C+", 3);
-        temphmap.put("C", 2);
-        temphmap.put("C-", 1);
-        temphmap.put("D+", 0);
-        temphmap.put("D", 0);
-        temphmap.put("D-", 0);
-        hmap = temphmap;
+        hmap.put("A+", 9);
+        hmap.put("A", 8);
+        hmap.put("A-", 7);
+        hmap.put("B+", 6);
+        hmap.put("B", 5);
+        hmap.put("B-", 4);
+        hmap.put("C+", 3);
+        hmap.put("C", 2);
+        hmap.put("C-", 1);
+        hmap.put("D+", 0);
+        hmap.put("D", 0);
+        hmap.put("D-", 0);
 
     }
 
@@ -76,6 +74,8 @@ class GPACalculator {
     public static void main(String[] args) {
         gui();
         createHashMap();
+
+        System.out.println(hmap);
 
 
 
