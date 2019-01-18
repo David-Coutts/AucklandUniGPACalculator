@@ -5,8 +5,26 @@ import java.awt.event.*;
 
 class GPACalculator {
 
+    public static HashMap<String, Integer> hmap = new HashMap<String, Integer>();
+    public static int grades[] = new int[24];
 
-    int grades[] = new int[24];
+    private static void createHashMap(){
+        HashMap<String, Integer> temphmap = new HashMap<String, Integer>();
+        temphmap.put("A+", 9);
+        temphmap.put("A", 8);
+        temphmap.put("A-", 7);
+        temphmap.put("B+", 6);
+        temphmap.put("B", 5);
+        temphmap.put("B-", 4);
+        temphmap.put("C+", 3);
+        temphmap.put("C", 2);
+        temphmap.put("C-", 1);
+        temphmap.put("D+", 0);
+        temphmap.put("D", 0);
+        temphmap.put("D-", 0);
+        hmap = temphmap;
+
+    }
 
     private static String getInput() {
         String input;
@@ -41,6 +59,7 @@ class GPACalculator {
             public void actionPerformed(ActionEvent e)
             {
                 String variable = textField.getText();
+                }
 
             }
         });
@@ -50,12 +69,17 @@ class GPACalculator {
         frame.getContentPane().add(BorderLayout.CENTER, panel);
         frame.setVisible(true);
 
+
     }
 
 
 
     public static void main(String[] args) {
         gui();
+        createHashMap();
+
+        System.out.println(hmap);
+
 
 
     }
