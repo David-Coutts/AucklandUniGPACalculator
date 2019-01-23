@@ -5,22 +5,58 @@ import java.awt.event.*;
 
 class GPACalculator {
 
-    public static HashMap<String, Integer> hmap = new HashMap<String, Integer>();
-    public static int grades[] = new int[24];
+    private static int gradeTotal = 0;
+    private static int subjectCount = 0;
+    private static int GPAresult;
 
-    private static void createHashMap(){
-        hmap.put("A+", 9);
-        hmap.put("A", 8);
-        hmap.put("A-", 7);
-        hmap.put("B+", 6);
-        hmap.put("B", 5);
-        hmap.put("B-", 4);
-        hmap.put("C+", 3);
-        hmap.put("C", 2);
-        hmap.put("C-", 1);
-        hmap.put("D+", 0);
-        hmap.put("D", 0);
-        hmap.put("D-", 0);
+    private static String parseInput(String inputVariable){
+        inputVariable = inputVariable.toUpperCase();
+        if (inputVariable.equals("A+")){
+            gradeTotal += 9;
+            subjectCount += 1;
+        } else if (inputVariable.equals("A")){
+            gradeTotal += 8;
+            subjectCount += 1;
+        } else if (inputVariable.equals("A-")){
+            gradeTotal += 7;
+            subjectCount += 1;
+        } else if (inputVariable.equals("B+")){
+            gradeTotal += 6;
+            subjectCount += 1;
+        } else if (inputVariable.equals("B")){
+            gradeTotal += 5;
+            subjectCount += 1;
+        } else if (inputVariable.equals("B-")){
+            gradeTotal += 4;
+            subjectCount += 1;
+        } else if (inputVariable.equals("C+")){
+            gradeTotal += 3;
+            subjectCount += 1;
+        } else if (inputVariable.equals("C")){
+            gradeTotal += 2;
+            subjectCount += 1;
+        } else if (inputVariable.equals("C-")){
+            gradeTotal += 1;
+            subjectCount += 1;
+        } else if (inputVariable.equals("D+")){
+            gradeTotal += 0;
+            subjectCount += 1;
+        } else if (inputVariable.equals("D")){
+            gradeTotal += 0;
+            subjectCount += 1;
+        } else if (inputVariable.equals("D-")){
+            gradeTotal += 0;
+            subjectCount += 1;
+        } else if (inputVariable.equals("F")){
+            gradeTotal += 0;
+            subjectCount += 1;
+        }
+        System.out.println(gradeTotal);
+        System.out.println(subjectCount);
+        int result = gradeTotal/subjectCount;
+        System.out.println(result);
+        String returnValue = String.valueOf(result);
+        return returnValue;
 
     }
 
@@ -36,16 +72,16 @@ class GPACalculator {
         // create Frame
         JFrame frame = new JFrame("Auckland Uni GPA Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 500);
+        frame.setSize(250, 250);
 
         // create panel at bottom, add compmonents
         int gradeCount = 0;
         JPanel panel = new JPanel();
         JLabel promptLabel = new JLabel("Enter your grade (e.g. A+, A, A-, etc.):");
-        JTextField textField = new JTextField(30);
-        JButton addGradeButton = new JButton("Add grade");
+        JTextField textField = new JTextField(10);
+        JButton addGradeButton = new JButton("Submit");
         JButton resetButton = new JButton("Reset");
-        JTextArea textArea = new JTextArea("This is just a test.");
+        JTextArea textArea = new JTextArea("Your GPA is 0");
         panel.add(promptLabel);
         panel.add(promptLabel);
         panel.add(textField);
@@ -57,6 +93,19 @@ class GPACalculator {
             public void actionPerformed(ActionEvent e)
             {
                 String variable = textField.getText();
+                String result = parseInput(variable);
+                textArea.setText("Your GPA is " + result);
+
+            }
+        });
+
+        resetButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                int gradeCount = 0;
+                int subjectCount = 0;
+                textArea.setText("Your GPA is 0");
 
             }
         });
@@ -73,9 +122,6 @@ class GPACalculator {
 
     public static void main(String[] args) {
         gui();
-        createHashMap();
-
-        System.out.println(hmap);
 
 
 
