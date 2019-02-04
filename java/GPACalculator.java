@@ -3,11 +3,13 @@ import java.awt.*;
 import java.util.*;
 import java.awt.event.*;
 
+
+
+
 class GPACalculator {
 
     private static int gradeTotal = 0;
     private static int subjectCount = 0;
-    private static int GPAresult;
 
     private static String parseInput(String inputVariable){
         inputVariable = inputVariable.toUpperCase();
@@ -75,7 +77,6 @@ class GPACalculator {
         frame.setSize(250, 250);
 
         // create panel at bottom, add compmonents
-        int gradeCount = 0;
         JPanel panel = new JPanel();
         JLabel promptLabel = new JLabel("Enter your grade (e.g. A+, A, A-, etc.):");
         JTextField textField = new JTextField(10);
