@@ -3,16 +3,32 @@ import java.awt.*;
 import java.util.*;
 import java.awt.event.*;
 
+/*
+class variables {
 
+    private static int value = 0;
 
+    public static int getValue(){
+        return value;
+    }
 
-class GPACalculator {
+    public static void incrementValue(int incrementInt){
+        value += incrementInt;
+    }
+
+}
+ */
+
+class grade{
 
     private static int gradeTotal = 0;
     private static int subjectCount = 0;
 
-    private static String parseInput(String inputVariable){
-        inputVariable = inputVariable.toUpperCase();
+    public static int getValue() {
+        return gradeTotal/subjectCount;
+    }
+
+    public static void setValue(String inputVariable){
         if (inputVariable.equals("A+")){
             gradeTotal += 9;
             subjectCount += 1;
@@ -53,14 +69,16 @@ class GPACalculator {
             gradeTotal += 0;
             subjectCount += 1;
         }
-        System.out.println(gradeTotal);
-        System.out.println(subjectCount);
-        int result = gradeTotal/subjectCount;
-        System.out.println(result);
-        String returnValue = String.valueOf(result);
-        return returnValue;
 
     }
+
+
+
+
+}
+
+
+class GPACalculator {
 
     private static String getInput() {
         String input;
@@ -94,8 +112,8 @@ class GPACalculator {
             public void actionPerformed(ActionEvent e)
             {
                 String variable = textField.getText();
-                String result = parseInput(variable);
-                textArea.setText("Your GPA is " + result);
+                grade.setValue(variable);
+                textArea.setText("Your GPA is " + grade.getValue());
 
             }
         });
