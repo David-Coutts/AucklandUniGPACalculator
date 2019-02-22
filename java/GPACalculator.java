@@ -25,7 +25,18 @@ class grade{
     private static int subjectCount = 0;
 
     public static int getValue() {
-        return gradeTotal/subjectCount;
+
+        if (subjectCount == 0){
+            return 0;
+        } else {
+            return gradeTotal/subjectCount;
+        }
+
+    }
+
+    public static void resetValue(){
+        gradeTotal = 0;
+        subjectCount = 0;
     }
 
     public static void setValue(String inputVariable){
@@ -100,7 +111,7 @@ class GPACalculator {
         JTextField textField = new JTextField(10);
         JButton addGradeButton = new JButton("Submit");
         JButton resetButton = new JButton("Reset");
-        JTextArea textArea = new JTextArea("Your GPA is 0");
+        JTextArea textArea = new JTextArea("Your GPA is " + grade.getValue());
         panel.add(promptLabel);
         panel.add(promptLabel);
         panel.add(textField);
@@ -122,9 +133,8 @@ class GPACalculator {
         {
             public void actionPerformed(ActionEvent e)
             {
-                int gradeCount = 0;
-                int subjectCount = 0;
-                textArea.setText("Your GPA is 0");
+                grade.resetValue();
+                textArea.setText("Your GPA is " + grade.getValue());
 
             }
         });
