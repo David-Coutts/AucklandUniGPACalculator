@@ -3,35 +3,17 @@ import java.awt.*;
 import java.util.*;
 import java.awt.event.*;
 
-/*
-class variables {
-
-    private static int value = 0;
-
-    public static int getValue(){
-        return value;
-    }
-
-    public static void incrementValue(int incrementInt){
-        value += incrementInt;
-    }
-
-}
- */
-
 class grade{
 
     private static int gradeTotal = 0;
     private static int subjectCount = 0;
 
     public static int getValue() {
-
         if (subjectCount == 0){
             return 0;
         } else {
             return gradeTotal/subjectCount;
         }
-
     }
 
     public static void resetValue(){
@@ -80,12 +62,7 @@ class grade{
             gradeTotal += 0;
             subjectCount += 1;
         }
-
     }
-
-
-
-
 }
 
 
@@ -125,7 +102,6 @@ class GPACalculator {
                 String variable = textField.getText();
                 grade.setValue(variable);
                 textArea.setText("Your GPA is " + grade.getValue());
-
             }
         });
 
@@ -135,7 +111,6 @@ class GPACalculator {
             {
                 grade.resetValue();
                 textArea.setText("Your GPA is " + grade.getValue());
-
             }
         });
 
@@ -143,18 +118,9 @@ class GPACalculator {
 
         frame.getContentPane().add(BorderLayout.CENTER, panel);
         frame.setVisible(true);
-
-
     }
-
-
 
     public static void main(String[] args) {
         gui();
-
-
-
     }
-
-
 }
