@@ -4,7 +4,6 @@ import java.util.*;
 import java.awt.event.*;
 
 class grade{
-
     private static int gradeTotal = 0;
     private static int subjectCount = 0;
 
@@ -65,24 +64,14 @@ class grade{
     }
 }
 
-
 class GPACalculator {
-
-    private static String getInput() {
-        String input;
-        Scanner reader = new Scanner(System.in);
-        System.out.println("Enter your grade (e.g. A+, A, A-, etc.):");
-        input = reader.nextLine();
-        return input;
-    }
-
     private static void gui() {
         // create Frame
         JFrame frame = new JFrame("Auckland Uni GPA Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(250, 250);
 
-        // create panel at bottom, add compmonents
+        // create panel at bottom, add components
         JPanel panel = new JPanel();
         JLabel promptLabel = new JLabel("Enter your grade (e.g. A+, A, A-, etc.):");
         JTextField textField = new JTextField(10);
@@ -95,6 +84,8 @@ class GPACalculator {
         panel.add(addGradeButton);
         panel.add(resetButton);
         panel.add(textArea);
+
+        //implements action listeners, and their behaviour for submit and reset buttons
         addGradeButton.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
@@ -104,7 +95,6 @@ class GPACalculator {
                 textArea.setText("Your GPA is " + grade.getValue());
             }
         });
-
         resetButton.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
@@ -115,7 +105,6 @@ class GPACalculator {
         });
 
         //setting layout
-
         frame.getContentPane().add(BorderLayout.CENTER, panel);
         frame.setVisible(true);
     }
